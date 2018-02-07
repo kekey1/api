@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -67,6 +68,7 @@ public class AlternateCareFacilityService {
 	// GET all acfs
 	@ApiOperation(value="Get the list of all alternate care facilities (ACFs)")
 	@RequestMapping(value = "", method = RequestMethod.GET)
+	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	public ArrayList<AlternateCareFacility> getACFs() throws UserRetrievalException, JsonProcessingException {
 
 		RestTemplate query = new RestTemplate();

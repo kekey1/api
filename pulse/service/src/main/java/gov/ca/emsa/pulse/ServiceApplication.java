@@ -15,13 +15,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 		"gov.ca.emsa.pulse.config.**", 
 		"gov.ca.emsa.pulse.health.**"})
 
-public class ServiceApplication {
+public class ServiceApplication{
 
 	public static void main(String[] args) {
 		SpringApplication.run(ServiceApplication.class, args);
 	}
 	
-	@Bean
+    @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurerAdapter() {
             @Override
@@ -30,5 +30,4 @@ public class ServiceApplication {
             }
         };
     }
-	
 }
